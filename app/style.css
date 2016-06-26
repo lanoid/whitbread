@@ -1,0 +1,16 @@
+form {
+    padding: 2em;
+}
+
+label,
+input {
+    margin-bottom: 1em;
+}
+
+fieldset {
+    margin-bottom: 2em;
+}
+
+ul {
+    list-style-position: inside;
+}
