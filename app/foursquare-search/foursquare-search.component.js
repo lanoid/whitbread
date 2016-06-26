@@ -7,7 +7,7 @@ angular.
         controller : ['$http', function foursquareSearch($http) {
             var self = this;
             self.place = '';
-            self.restaurants = {};
+            self.venues = {};
 
             self.search = function search(place) {
                 console.log(place);
@@ -19,8 +19,13 @@ angular.
                         near : place
 
                     }
-                }).then(function(response){
-                    console.info(response);
+                }).then(function(response) {
+                    self.venues = response.data.response.venues;
+                    console.info(response.data.response.venues)
+                }, function(response) {
+                    self.venues.error = {
+                        name : 'No venues found for that location'
+                    };
                 });
             };
         }]
