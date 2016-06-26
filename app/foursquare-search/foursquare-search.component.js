@@ -18,13 +18,13 @@ angular.
                         near : place
 
                     }
-                }).then(function(response) {
+                }).then(function (response) {
                     self.venues = response.data.response.venues;
-                }, function(response) {
+                }, function () {
                     self.venues.error = {
                         name : 'No venues found for that location'
                     };
                 });
             };
         }]
-    })
+    });
