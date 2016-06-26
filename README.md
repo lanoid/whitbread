@@ -9,3 +9,8 @@ A simple base with a separated controller ready for code to be placed inside
 ## Subsequent Check In's
 
 Improvements and features
+
+## To Run
+
+*npm install
+*npm start
