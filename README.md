@@ -10,10 +10,10 @@ Using Bower to install and manage dependencies.
 
 ## Subsequent Check In's
 
-Addition of input bound to the controller.place value.
-Addition of http search to query and return data from foursquare.
-Addition of test to be run in isolation on the module foursquare-search.
-Addition of a little CSS and some mild linting.
+1. Addition of input bound to the controller.place value.
+2. Addition of http search to query and return data from foursquare.
+3. Addition of test to be run in isolation on the module foursquare-search.
+4. Addition of a little CSS and some mild linting.
 
 ## To Run
 
