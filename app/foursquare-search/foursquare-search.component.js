@@ -4,7 +4,7 @@ angular.
     module('foursquareSearch').
     component('foursquareSearch', {
         templateUrl : 'foursquare-search/foursquare-search.template.html',
-        controller : ['$http', function foursquareSearch($http) {
+        controller : ['$http', function foursquareSearchController($http) {
             var self = this;
             self.place = '';
             self.venues = {};
