@@ -21,7 +21,6 @@ angular.
                     }
                 }).then(function(response) {
                     self.venues = response.data.response.venues;
-                    console.info(response.data.response.venues)
                 }, function(response) {
                     self.venues.error = {
                         name : 'No venues found for that location'

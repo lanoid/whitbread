@@ -3,8 +3,11 @@
 describe('foursquareSearch', function () {
     beforeEach(module('foursquareSearch'));
     describe('foursquareSearchController', function () {
-        var $httpBackend, ctrl, response = {
-            data : {
+        var $httpBackend,
+            ctrl,
+            searchTerm = 'London',
+            searchURL = 'http://api.foursquare.com/v2/venues/search?client_id=K44KPZIQF0R52SZMNSJD3DS2ZDF5O1UKOQ5LKG4KY1NFC4OB&client_secret=UXEB1N1HQERJRQBZ0MYL3WEE1NDHGJTK0YLBIAK5ZXUF44KP&near=London&v=20160101',
+            response = {
                 response : {
                     venues : [
                         {
@@ -14,25 +17,34 @@ describe('foursquareSearch', function () {
                                     name : 'Outdoors'
                                 }
                             ]
-                        }
+                        },
+                        {
+                            name : 'Hyde Park',
+                            categories : [
+                                {
+                                    name : 'Outdoors'
+                                }
+                            ]
+                        },
                     ]
                 }
-            }
-        };
+            };
 
-        beforeEach(inject(function($componentController, _$httpBackend_, $routeParams) {
+        beforeEach(inject(function($componentController, _$httpBackend_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('api.foursquare.com/v2/venues/search?client_id=K44KPZIQF0R52SZMNSJD3DS2ZDF5O1UKOQ5LKG4KY1NFC4OB&client_secret=UXEB1N1HQERJRQBZ0MYL3WEE1NDHGJTK0YLBIAK5ZXUF44KP&near=london&v=20160101').respond(response);
+            $httpBackend.expectGET(searchURL).respond(response);
 
             ctrl = $componentController('foursquareSearch');
         }));
 
-        it('should return a list of venues near London', function () {
-            ctrl.search('London');
-            expect(ctrl.venues.data.response.venues[0].name).toBe('Trafalgar Square');
+        it('should have an empty string for place', function () {
+            expect(ctrl.place.length).toBe(0);
         });
-        it('should set place to the search term entered', function () {
-            expect(ctrl.keywords).toBe('London');
+
+        it('should return a list of venues near ' + searchTerm, function () {
+            ctrl.search(searchTerm);
+            $httpBackend.flush();
+            expect(ctrl.venues[0].name).toBe('Trafalgar Square');
         });
     });
 });
