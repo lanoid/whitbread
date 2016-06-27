@@ -26,3 +26,5 @@ Using Bower to install and manage dependencies.
 There is probably way too much stuff in the node folder, given time I would assess what is needed and adjust the dependencies accordingly.
 
 With more time, addition of a pre-processer so that I can modularize the SASS or LESS for inclusion in a project compiled css file.
+
+Building the src into a single minified & uglified file would make this example ready for production, I didn't have time for this, as you can see form the check in history.
