@@ -6,6 +6,6 @@
     </fieldset>
 
     <ul class="col-md-6 col-md-offset-3">
-        <li ng-repeat="venue in $ctrl.venues">{{venue.name}}<em> - {{venue.categories[0].name}}</em></li>
+        <li ng-repeat="venue in $ctrl.venues">{{venue.name}}<em> - {{venue.categories[0].name}}</em> <a ng-show="{{venue.url}}" href="{{venue.url}}">{{venue.url}}</a></li>
     </ul>
 </form>
